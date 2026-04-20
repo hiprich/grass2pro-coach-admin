@@ -152,50 +152,101 @@
       </header>
 
       <section id="dashboard" class="section active">
-        <div class="card hero-note">
-          <strong>Tonight at 18:00 · Tuesday private training</strong>
-          <p class="muted" style="margin-top:.35rem;">10 players expected, 2 low-credit players, 3 overdue payments, one trial player joining.</p>
-        </div>
-        <div class="grid stats">
-          <article class="card kpi"><span class="muted">Players</span><span class="value">10</span><span class="tag info">Active squad</span></article>
-          <article class="card kpi"><span class="muted">Overdue payments</span><span class="value">3</span><span class="tag danger">Needs follow-up</span></article>
-          <article class="card kpi"><span class="muted">Low credits</span><span class="value">2</span><span class="tag warning">1 session left</span></article>
-          <article class="card kpi"><span class="muted">Attendance rate</span><span class="value">88%</span><span class="tag success">Last 4 sessions</span></article>
-        </div>
-        <div class="grid layout">
-          <article class="card">
-            <h2>Today’s priorities</h2>
-            <div class="list">
-              <div class="item"><div><strong>Mark attendance for Tuesday Elite Group</strong><small>Session starts at 18:00, Hurlingham Cage</small></div><span class="tag info">Open</span></div>
-              <div class="item"><div><strong>Chase 3 overdue parents</strong><small>2 bank transfer, 1 cash not recorded</small></div><span class="tag danger">Due</span></div>
-              <div class="item"><div><strong>Renew package for Jaden and Arlo</strong><small>Both have 1 session credit left</small></div><span class="tag warning">Low</span></div>
-            </div>
-          </article>
-          <article class="card">
-            <h2>Quick actions</h2>
-            <div class="grid cards-2">
-              <button class="player-card nav-jump" data-view="players"><strong>Add player</strong><span class="muted">Create a new player and link a parent.</span></button>
-              <button class="player-card nav-jump" data-view="attendance"><strong>Mark register</strong><span class="muted">Open the live attendance sheet.</span></button>
-              <button class="player-card nav-jump" data-view="payments"><strong>Record payment</strong><span class="muted">Update paid, due or overdue status.</span></button>
-              <button class="player-card nav-jump" data-view="sessions"><strong>Create session</strong><span class="muted">Schedule the next group or 1-to-1.</span></button>
-            </div>
-          </article>
-        </div>
-        <article class="card">
-          <h2>Recent activity</h2>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Time</th><th>Action</th><th>Player</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr><td>17:20</td><td>Payment recorded</td><td>Isaac Morgan</td><td><span class="tag success">Paid</span></td></tr>
-                <tr><td>16:55</td><td>Session created</td><td>Tuesday Elite Group</td><td><span class="tag info">Scheduled</span></td></tr>
-                <tr><td>16:10</td><td>Credit warning</td><td>Arlo Bennett</td><td><span class="tag warning">1 left</span></td></tr>
-                <tr><td>15:50</td><td>Reminder due</td><td>Noah’s parent</td><td><span class="tag danger">Overdue</span></td></tr>
-              </tbody>
-            </table>
+  <!-- Dynamic session / hero summary -->
+  <div class="card hero-note" id="dashboard-hero">
+    <strong id="dashboard-hero-title">Next session not set</strong>
+    <p class="muted" id="dashboard-hero-subtitle" style="margin-top:.35rem;">
+      When you add your first session, key info will appear here.
+    </p>
+  </div>
+
+  <!-- Dynamic KPI cards -->
+  <div class="grid stats" id="dashboard-kpis">
+    <article class="card kpi">
+      <span class="muted">Players</span>
+      <span class="value" id="kpi-players">0</span>
+      <span class="tag info">Active squad</span>
+    </article>
+    <article class="card kpi">
+      <span class="muted">Overdue payments</span>
+      <span class="value" id="kpi-overdue">0</span>
+      <span class="tag danger">Needs follow-up</span>
+    </article>
+    <article class="card kpi">
+      <span class="muted">Low credits</span>
+      <span class="value" id="kpi-low-credits">0</span>
+      <span class="tag warning">1 session left</span>
+    </article>
+    <article class="card kpi">
+      <span class="muted">Attendance rate</span>
+      <span class="value" id="kpi-attendance">0%</span>
+      <span class="tag success">Last 4 sessions</span>
+    </article>
+  </div>
+
+  <!-- Dynamic priorities list -->
+  <div class="grid layout">
+    <article class="card">
+      <h2>Today’s priorities</h2>
+      <div class="list" id="dashboard-priorities">
+        <div class="item">
+          <div>
+            <strong>No priorities yet</strong>
+            <small>Add sessions and players to see smart suggestions.</small>
           </div>
-        </article>
-      </section>
+          <span class="tag info">Tip</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Quick actions stay static (navigation only) -->
+    <article class="card">
+      <h2>Quick actions</h2>
+      <div class="grid cards-2">
+        <button class="player-card nav-jump" data-view="players">
+          <strong>Add player</strong>
+          <span class="muted">Create a new player and link a parent.</span>
+        </button>
+        <button class="player-card nav-jump" data-view="attendance">
+          <strong>Mark register</strong>
+          <span class="muted">Open the live attendance sheet.</span>
+        </button>
+        <button class="player-card nav-jump" data-view="payments">
+          <strong>Record payment</strong>
+          <span class="muted">Update paid, due or overdue status.</span>
+        </button>
+        <button class="player-card nav-jump" data-view="sessions">
+          <strong>Create session</strong>
+          <span class="muted">Schedule the next group or 1-to-1.</span>
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <!-- Dynamic recent activity -->
+  <article class="card">
+    <h2>Recent activity</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Action</th>
+            <th>Player</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="dashboard-activity">
+          <tr>
+            <td colspan="4">
+              <span class="muted">Activity from payments, attendance and sessions will appear here.</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
 
       <section id="players" class="section">
         <div class="toolbar">
