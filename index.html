@@ -124,9 +124,9 @@
         </div>
       </div>
       <nav class="nav" aria-label="Primary">
-  <button class="nav-link active" data-view="dashboard">Dashboard <span>01</span></button>
-  <button class="nav-link" data-view="players">Players <span id="player-count">0</span></button>
-  <button class="nav-link" data-view="sessions">Sessions <span>04</span></button>
+  <button class="nav-link active" data-view="dashboard">Dashboard <span></span></button>
+  <button class="nav-link" data-view="players">Players <span id="player-count"></span></button>
+  <button class="nav-link" data-view="sessions">Sessions <span></span></button>
   <button class="nav-link" data-view="attendance">Attendance <span>Live</span></button>
   <button class="nav-link" data-view="payments">Payments <span>£</span></button>
 </nav>
@@ -282,27 +282,26 @@
 </section>
 
       <section id="sessions" class="section">
-        <div class="grid cards-2">
-          <article class="card">
-            <h2>Upcoming sessions</h2>
-            <div class="list">
-              <div class="item"><div><strong>Tuesday Elite Group</strong><small>1 Apr · 18:00–19:00 · Hurlingham Cage</small></div><span class="tag info">10 expected</span></div>
-              <div class="item"><div><strong>Thursday Finishing Clinic</strong><small>3 Apr · 17:30–18:30 · Goals Centre</small></div><span class="tag warning">8 booked</span></div>
-              <div class="item"><div><strong>Saturday Small Group</strong><small>5 Apr · 09:00–10:00 · Powerleague</small></div><span class="tag success">Full</span></div>
-            </div>
-          </article>
-          <article class="card">
-            <h2>Create session</h2>
-            <div class="grid" style="gap:var(--space-3);">
-              <input class="search" value="Tuesday Elite Group" aria-label="Session name" />
-              <input class="search" value="1 Apr 2026 · 18:00" aria-label="Date and time" />
-              <input class="search" value="Hurlingham Cage" aria-label="Venue" />
-              <input class="search" value="Credit cost: 1 session" aria-label="Credit cost" />
-              <button class="btn btn-primary" style="justify-content:center;">Save session</button>
-            </div>
-          </article>
-        </div>
-      </section>
+  <div class="grid cards-2">
+    <article class="card">
+      <h2>Upcoming sessions</h2>
+      <div class="list" id="sessions-list">
+        <!-- Session rows will be filled dynamically -->
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Create session</h2>
+      <div class="grid" style="gap:var(--space-3);">
+        <input class="search" id="session-name" placeholder="Session name" aria-label="Session name" />
+        <input class="search" id="session-datetime" placeholder="Date and time" aria-label="Date and time" />
+        <input class="search" id="session-venue" placeholder="Venue" aria-label="Venue" />
+        <input class="search" id="session-credit-cost" placeholder="Credit cost" aria-label="Credit cost" />
+        <button class="btn btn-primary" id="save-session-btn" style="justify-content:center;">Save session</button>
+      </div>
+    </article>
+  </div>
+</section>
 
       <section id="attendance" class="section">
   <article class="card">
