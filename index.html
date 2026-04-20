@@ -248,33 +248,38 @@
   </article>
 </section>
 
-      <section id="players" class="section">
-        <div class="toolbar">
-          <input class="search" placeholder="Search player or parent" aria-label="Search players" />
-          <div class="top-actions">
-            <span class="pill">10 players</span>
-            <button class="btn btn-primary">+ New player</button>
-          </div>
-        </div>
-        <div class="grid cards-2">
-          <article class="card">
-            <h2>Player list</h2>
-            <div class="list">
-              <div class="item"><div class="row"><div class="avatar">JM</div><div><strong>Jaden Miller</strong><small>Parent: S. Miller · U10 Elite</small></div></div><span class="tag warning">1 credit</span></div>
-              <div class="item"><div class="row"><div class="avatar">IB</div><div><strong>Isaac Brown</strong><small>Parent: K. Brown · U10 Elite</small></div></div><span class="tag success">Paid</span></div>
-              <div class="item"><div class="row"><div class="avatar">NB</div><div><strong>Noah Bennett</strong><small>Parent: A. Bennett · U10 Elite</small></div></div><span class="tag danger">Overdue</span></div>
-              <div class="item"><div class="row"><div class="avatar">AS</div><div><strong>Aaron Smith</strong><small>Parent: T. Smith · U10 Elite</small></div></div><span class="tag info">Trial</span></div>
-              <div class="item"><div class="row"><div class="avatar">AM</div><div><strong>Amir Khan</strong><small>Parent: R. Khan · U10 Elite</small></div></div><span class="tag success">4 credits</span></div>
-            </div>
-          </article>
-         <article class="card" id="player-detail">
-  <h2>Selected profile</h2>
-  <div class="grid" style="gap:var(--space-3);" id="player-detail-body">
-    <p class="muted">Select a player from the list to see details.</p>
+     <section id="players" class="section">
+  <div class="toolbar">
+    <input
+      class="search"
+      id="player-search"
+      placeholder="Search player or parent"
+      aria-label="Search players"
+    />
+    <div class="top-actions">
+      <span class="pill"><span id="player-count-toolbar">0</span> players</span>
+      <button class="btn btn-primary">+ New player</button>
+    </div>
   </div>
-</article>
-        </div>
-      </section>
+
+  <div class="grid cards-2">
+    <!-- Dynamic player list -->
+    <article class="card">
+      <h2>Player list</h2>
+      <div class="list" id="player-list">
+        <!-- Filled dynamically from Airtable -->
+      </div>
+    </article>
+
+    <!-- Dynamic selected profile -->
+    <article class="card" id="player-detail">
+      <h2>Selected profile</h2>
+      <div class="grid" style="gap:var(--space-3);" id="player-detail-body">
+        <p class="muted">Select a player from the list to see details.</p>
+      </div>
+    </article>
+  </div>
+</section>
 
       <section id="sessions" class="section">
         <div class="grid cards-2">
