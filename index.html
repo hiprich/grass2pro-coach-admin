@@ -305,22 +305,22 @@
       </section>
 
       <section id="attendance" class="section">
-        <article class="card">
-          <div class="toolbar">
-            <div>
-              <h2>Tuesday Elite Group register</h2>
-              <p class="muted">Mark present, absent or trial. Credits can be deducted as you go.</p>
-            </div>
-            <span class="pill">18:00–19:00</span>
-          </div>
-          <div class="list" id="attendance-list">
-            <div class="att-row"><div><strong>Jaden Miller</strong><small class="muted">1 credit left · Parent: Sarah</small></div><div class="att-actions"><button class="att-btn present active">Present</button><button class="att-btn absent">Absent</button><button class="att-btn trial">Trial</button></div><label class="check"><input type="checkbox" checked /> Deduct credit</label></div>
-            <div class="att-row"><div><strong>Isaac Brown</strong><small class="muted">4 credits left · Parent: Kelly</small></div><div class="att-actions"><button class="att-btn present active">Present</button><button class="att-btn absent">Absent</button><button class="att-btn trial">Trial</button></div><label class="check"><input type="checkbox" checked /> Deduct credit</label></div>
-            <div class="att-row"><div><strong>Noah Bennett</strong><small class="muted">0 credits left · Payment overdue</small></div><div class="att-actions"><button class="att-btn present">Present</button><button class="att-btn absent active">Absent</button><button class="att-btn trial">Trial</button></div><label class="check"><input type="checkbox" /> Deduct credit</label></div>
-            <div class="att-row"><div><strong>Aaron Smith</strong><small class="muted">Trial player · Parent: Tanya</small></div><div class="att-actions"><button class="att-btn present">Present</button><button class="att-btn absent">Absent</button><button class="att-btn trial active">Trial</button></div><label class="check"><input type="checkbox" /> Deduct credit</label></div>
-          </div>
-        </article>
-      </section>
+  <article class="card">
+    <div class="toolbar">
+      <div>
+        <h2 id="attendance-title">Session register</h2>
+        <p class="muted" id="attendance-subtitle">
+          Mark present, absent or trial. Credits can be deducted as you go.
+        </p>
+      </div>
+      <span class="pill" id="attendance-time">Time not set</span>
+    </div>
+
+    <div class="list" id="attendance-list">
+      <!-- Attendance rows will be filled dynamically -->
+    </div>
+  </article>
+</section>
 
       <section id="payments" class="section">
         <div class="grid cards-3" id="payments-kpis">
