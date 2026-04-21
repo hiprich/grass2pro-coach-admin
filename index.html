@@ -743,7 +743,18 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', loadPlayers);
+  document.addEventListener('DOMContentLoaded', () => {
+  // TODO: replace with real coach data source later
+  const coachData = {
+    name: 'Marcus Coaches',
+    role: 'Private Coach',
+    credential: 'UEFA C Licence',
+    avatarUrl: '' // put uploaded coach image URL here when you have one
+  };
+
+  renderCoachProfile(coachData);
+  loadPlayers();
+});
 </script>
 </body>
 </html>
