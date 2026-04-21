@@ -539,6 +539,39 @@
     .toUpperCase() || 'C';
 }
 
+    function renderCoachProfile(coach) {
+  const avatarEl = document.getElementById('coach-avatar');
+  const nameEl = document.getElementById('coach-display-name');
+  const roleEl = document.getElementById('coach-role');
+  const credentialEl = document.getElementById('coach-credential');
+  const pageTitleEl = document.getElementById('coach-page-title');
+
+  if (!avatarEl || !nameEl || !roleEl || !credentialEl) return;
+
+  const coachName = coach.name || 'Coach Name';
+  const coachRole = coach.role || 'Private Coach';
+  const coachCredential = coach.credential || '';
+  const coachImage = coach.avatarUrl || '';
+
+  nameEl.textContent = coachName;
+  roleEl.textContent = coachRole;
+  credentialEl.textContent = coachCredential;
+  if (pageTitleEl) pageTitleEl.textContent = coachName;
+
+  if (coachImage) {
+    avatarEl.innerHTML = `
+      <img
+        src="${coachImage}"
+        alt="${coachName}"
+        loading="lazy"
+        onerror="this.parentElement.textContent='${getInitials(coachName)}';"
+      >
+    `;
+  } else {
+    avatarEl.textContent = getInitials(coachName);
+  }
+}
+
   // ----- Airtable-powered Players UI -----
   const playerListEl = document.getElementById('player-list');
   const playerDetailBody = document.getElementById('player-detail-body');
