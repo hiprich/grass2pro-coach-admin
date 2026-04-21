@@ -528,6 +528,17 @@
     });
   });
 
+    function getInitials(name = '') {
+  return name
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part[0])
+    .join('')
+    .toUpperCase() || 'C';
+}
+
   // ----- Airtable-powered Players UI -----
   const playerListEl = document.getElementById('player-list');
   const playerDetailBody = document.getElementById('player-detail-body');
